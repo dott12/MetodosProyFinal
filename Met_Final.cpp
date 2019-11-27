@@ -9,20 +9,11 @@ using namespace std;
 int menu,menu2,menu3,menu4;
 
 
-float B11=0;//i
-float C11=0; //x
-float C12=0; //x
 float D11=0; // y
 float SCS11=0; //xi1
 float SFS5=0; //h
-float D12=0;
-float E12=0;
-float F12=0;
-float G12=0;
-float H12=0;
-float I12=0;
-float J12=0;
-float K12=0;
+
+
 
 void printKutta();
 void printEuler();
@@ -91,6 +82,18 @@ int main() {
 
 void printKutta(){
 	
+	float B11=0;//i
+	float C11=0; //x
+	float C12=0; //x
+	float D12=0;
+	float E12=0;
+	float F12=0;
+	float G12=0;
+	float H12=0;
+	float I12=0;
+	float J12=0;
+	float K12=0;
+	
 	 std::cout <<"| i "<<" |   xi "<< "    |    yi  "<< "  |    k1  "<< " |    k2 " << " |    k3 "<< "  |    k4  ";
 	 std::cout <<" |  Sol. Exac | "<<" Error abs" << "  |  ERAP   |";
 	 cout <<endl;
@@ -156,6 +159,18 @@ void printKutta(){
 
 void printEuler(){
 	
+float B11=0;//i
+float C11=0; //x
+float C12=0; //x
+float D12=0;
+float E12=0;
+float F12=0;
+float G12=0;
+float H12=0;
+float I12=0;
+float J12=0;
+float K12=0;
+	
 	 std::cout <<"| i "<<" |   xi "<< "    |    yi  "<< "  |    k1  "<< " |    k2 " << " |    k3 "<< "  |    k4  ";
 	 std::cout <<" |  Sol. Exac | "<<" Error abs" << "  |  ERAP   |";
 	 cout <<endl;
@@ -163,48 +178,10 @@ void printEuler(){
 	  for (int j=1;j<=10;j++){
 	  	
 	  	
-	 	
-	 	C12=SCS11+(B11*SFS5);
-	 	E12=SFS5*(2-D11/C11);
-	 	F12=SFS5*(2-((D11+(E12/2))/(C11+(SFS5/2))));
-	 	G12=SFS5*(2-((D11+(F12/2))/(C11+(SFS5/2))));
-	 	H12=SFS5*(2-((D11+(G12))/(C11+(SFS5))));
-	 	D12=((((E12+2*(F12)+2*G12+H12)))/6)+D11;
-	 	I12=C12-(1/C12);
-	 	J12=(ABS(I12-D12)/I12);
-	 	K12=((ABS(I12-D12)/I12)*100);
-	 	
-		 
-	 	cout<<"| ";
-	 	 	std::cout<< fixed << std::setprecision(0)<<B11;
-	 	 	cout<<"  |  ";
-	 	 	std::cout<< fixed << std::setprecision(4)<<C12;
-	 	 	cout<<"  |  "<<D12;
-	 	 	 cout <<" |  "<< E12;
-	 	 	 cout <<" |  "<< F12;
-	 	 	 cout <<" |  "<< G12;
-	 	 	  cout <<" |  "<< H12;
-	 	 	  cout <<" |  "<< H12;
-	 	 	  cout <<" |  "<< I12;
-	 	 	   cout <<" |  ";
-	 	 	  std::cout<< fixed << std::setprecision(7)<<J12;
-	 	 	  cout <<" |  "<< K12;
-			  
-			  cout <<endl;
-
-			  C11=C12;
-			  D11=D12;
-			  B11++;
-			
-			  
-			 
-			  
-			  
-			  
-			  
-			  	
-	 	//std::cout <<"| " << closed [c][0];
-	 	}
+	  	
+	  }
+	  	
+	  	
 	
 	
 }
