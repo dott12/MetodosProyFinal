@@ -42,12 +42,14 @@ int main() {
 					cout<<"\tFACULTAD DE SISTEMAS Y COMPUTACION"<<endl;
 					cout<<"LICENCIATURA EN INGENIERIA EN SISTEMAS COMPUTACIONALES"<<endl;
 					cout<<"\tMETODOS NUMERICOS PARA INGENIEROS"<<endl;
-					cout<<"\t\tPROYECTO N2"<<endl;
-					cout<<"\t\t   TEMA:"<<endl;
+					cout<<"\t\tPROYECTO FINAL"<<endl;
+					cout<<"\t\t   TEMA: "<<endl;
+						cout<<"\t EULER, RUNGE-KUTTA"<<endl;
 					cout<<"SISTEMAS DE ECUACIONES ALGEBRAICAS LINEALES"<<endl;
 					cout<<"FACILITADOR: ING.JACQUELINE S. DE CHING"<<endl;
 					cout<<"\t\tINTEGRANTES:"<<endl;
 					cout<<"\t IVES DE LA CRUZ 6-720-1526"<<endl;
+					cout<<"\t ADOLFO FERNANDEZ 8-934-485"<<endl;
 					cout<<"\t\t 1IL-124"<<endl;
 					cout<<"\t\t 20/10/19"<<endl;
 					system("pause");
@@ -55,7 +57,10 @@ int main() {
 			break;
 			
 			case 2: 
-				cout<<"Insercion de coeficientes"<<endl;
+				cout<<"Euler Modificado "<<endl;
+				cout<<"Funcion: y(x)=-1+5+1.5*exp(-x)"<<endl;
+				
+			
 				
 				getValues();
 				printEuler();
@@ -65,7 +70,8 @@ int main() {
 			break; 
 			
 			case 3: 
-				cout<<"Metodo Runge – Kutta"<<endl;
+				cout<<"Metodo Runge-Kutta "<<endl;
+				cout<<"Funcion: y(x)=x-1/x "<<endl;
 				
 				 getValues();
 				
@@ -133,7 +139,6 @@ void printKutta(){
 	 	 	 cout <<" |  "<< F12;
 	 	 	 cout <<" |  "<< G12;
 	 	 	  cout <<" |  "<< H12;
-	 	 	  cout <<" |  "<< H12;
 	 	 	  cout <<" |  "<< I12;
 	 	 	   cout <<" |  ";
 	 	 	  std::cout<< fixed << std::setprecision(7)<<J12;
@@ -163,20 +168,86 @@ float B11=0;//i
 float C11=0; //x
 float C12=0; //x
 float D12=0;
+float E11=0;
 float E12=0;
+float F11=0;
 float F12=0;
+float G11=0;
 float G12=0;
+float H11=0;
 float H12=0;
+float I11=0;
 float I12=0;
 float J12=0;
 float K12=0;
 	
-	 std::cout <<"| i "<<" |   xi "<< "    |    yi  "<< "  |    k1  "<< " |    k2 " << " |    k3 "<< "  |    k4  ";
-	 std::cout <<" |  Sol. Exac | "<<" Error abs" << "  |  ERAP   |";
+	 std::cout <<"| i "<<" |   xi "<< "    |    yi "<< "  |   yi,c  "<< " |  yi+1,p " << " | Sol. Ex "<< "| Error Abs " << " | ERP";
+
 	 cout <<endl;
 	 
-	  for (int j=1;j<=10;j++){
+	 {
+	 	
+	 		C11=SCS11;
+	 		D11=D11;
+	 		E11=C11-D11;
+	 		F11=C11+SFS5-(D11+E11*SFS5);
+	 		G11=-1+C11+1.5*exp(-C11);
+	 		H11=(ABS(G11-D11)/G11);
+	 		
+	 		
+	 		
+	 		cout<<"| ";
+	 	 	std::cout<< fixed << std::setprecision(0)<<B11;
+	 	 	cout<<"  |  ";
+	 	 	std::cout<< fixed << std::setprecision(4)<<C11;
+	 	 	cout<<"  |  "<< D11;
+	 	 	cout <<" |  "<< E11;
+	 	 	cout <<" |  "<< F11;
+	 	 	cout <<" |  "<< G11;
+	 	 	cout <<" |  "<< H11;
+	 	 	
+	 	 	
+	 	 	cout <<endl;
+	 	 	B11++;
+	 	
+	 }
+	 
+	 
+	 
+	  for (int j=1;j<=12;j++){
 	  	
+	  	//Ciclo for 
+	  	
+	  		C12=C11+SFS5;
+	 		D12=D11+(E11+F11)/2*SFS5;
+	 		E12=C12-D12;
+	 		F12=C12+SFS5-(D12+E12*SFS5);
+	 		G12=-1+C12+1.5*exp(-C12);
+	 		H12=(ABS(G12-D12)/G12);
+	 		I12=(ABS(G12-D12)/G12)*100;
+	 		
+	 		cout<<"| ";
+	 	 	std::cout<< fixed << std::setprecision(0)<<B11;
+	 	 	cout<<"  |  ";
+	 	 	std::cout<< fixed << std::setprecision(4)<<C12;
+	 	 	cout<<"  |  "<< D12;
+	 	 	cout <<" |  "<< E12;
+	 	 	cout <<" |  "<< F12;
+	 	 	cout <<" |  "<< G12;
+	 	 	cout <<" |  "<< H12;
+	 	 	cout <<" |  ";
+	 		std::cout<< fixed << std::setprecision(2)<<I12*100 <<"%";
+	 	 
+	  	
+	  	
+	 	 	 	 
+	 	 	  cout <<endl;
+	  	
+	  	B11++;
+	  	C11=C12;
+	  	D11=D12;
+	  	E11=E12;
+	  	F11=F12;
 	  	
 	  	
 	  }
